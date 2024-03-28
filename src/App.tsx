@@ -6,7 +6,10 @@ import './App.css'
 
 function App() {
   
-  const [rules, setRules] = React.useState<boolean>(false)           
+  const [score, setScore] = React.useState<number>(0)
+
+  const [userChoice, setUserChoice] = React.useState<string>("")
+  const [compChoice, setCompChoice] = React.useState<string>("")
 
   return (
     <>
@@ -29,27 +32,30 @@ function App() {
         <img src='/images/logo.svg' className='w-24 h-16' />
         <div className='bg-gray-100 flex flex-col justify-center items-center px-3 py-4 rounded-lg'>
           <h1 className='text-score-text text-sm tracking-wide font-bold'>SCORE</h1>
-          <h1 className='text-dark-text text-3xl font-bold'>12</h1>
+          <h1 className='text-dark-text text-3xl font-bold'>{score}</h1>
         </div>
       </section>
 
-      <section className='flex flex-col justify-center items-center border bg-center bg-no-repeat  ' style={{backgroundImage:`url(public/images/bg-triangle.svg)`}}>
-        <div className='flex  mb-24'>
-          <img src='/images/icon-paper.svg' className=' mr-12 bg-white p-4 rounded-full border-8 border-paper' />        
-          <img src='/images/icon-scissors.svg' className='ml-12 bg-white p-4 rounded-full border-8 border-scissors' />   
-          
-        </div>
-          <img src='/images/icon-rock.svg' className='bg-white p-4 rounded-full border-8 border-rock'/>
+      <div>
 
-      </section>
+        <section className='flex flex-col  items-center  bg-center bg-no-repeat ' style={{backgroundImage:`url(public/images/bg-triangle.svg)`}}>
+          <div className='flex  mb-32'>
+            <img src='/images/icon-paper.svg' className='-ml-1 mr-20 bg-white p-4 rounded-full border-8 border-paper hover:shadow-2xl hover:shadow-white hover:cursor-pointer' onClick={() => setUserChoice('paper')} />        
+            <img src='/images/icon-scissors.svg' className='ml-5 bg-white p-4 rounded-full border-8 border-scissors hover:cursor-pointer md:w-42' onClick={() => setUserChoice('paper')} />    
+          </div>
+            <img src='/images/icon-rock.svg' className='bg-white p-4 rounded-full border-8 border-rock hover:cursor-pointer' onClick={() => setUserChoice('rock')} />
+
+        </section>
+
+      </div>
      
       <button onClick={() => {
-                document.getElementById('game')?.classList.remove('flex')
-                document.getElementById('game')?.classList.add('hidden')
-                document.getElementById('rules')?.classList.add('flex')
-                document.getElementById('rules')?.classList.remove('hidden')
-              }} 
-              className='font-medium border border-white-1'
+        document.getElementById('game')?.classList.remove('flex')
+        document.getElementById('game')?.classList.add('hidden')
+        document.getElementById('rules')?.classList.add('flex')
+        document.getElementById('rules')?.classList.remove('hidden')
+        }} 
+        className='font-medium border border-white-1 hover:text-blue-700 hover:bg-white mx-auto mt-4 py-1 px-8 rounded-full'
       >
       RULES
       </button>
