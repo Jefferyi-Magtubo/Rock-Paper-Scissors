@@ -52,6 +52,7 @@ export default {
         'dark-text': 'hsl(229, 25%, 31%)',
         'score-text': 'hsl(229, 64%, 46%)',
         'header-outline': 'hsl(217, 16%, 45%)',
+        'score-bg' : '#979797'
       },
     },
   },
